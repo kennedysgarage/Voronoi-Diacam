@@ -63,8 +63,8 @@
     NSArray *toolbarItems = [NSArray arrayWithObject:checkinButton];
     [self.bottomToolBar setItems:toolbarItems];
     
-    [self.view addSubview:browser];
-    [self.view addSubview:bottomToolBar];
+    [self.view addSubview:self.browser];
+    [self.view addSubview:self.bottomToolBar];
     [self.view addSubview:self.activityView];
 }
 
