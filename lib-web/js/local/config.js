@@ -4,6 +4,7 @@
 VD = {};
 VD.config =
 {
+    mapContainerName : 'map-container',
     apiUrl : "/api/",
     defaultStart : 0,
     queryInterval : 7, //in seconds

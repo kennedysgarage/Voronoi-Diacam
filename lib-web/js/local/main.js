@@ -16,7 +16,7 @@ VD.main = function() {
     /* Server interactions: */
     // Redraw
     function redraw( data ) {
-        console.debug( 'redrawing...' );
+        console.debug( 'redrawing...', $(config.mapContainerName) );
         console.debug( data.meta );
     }
 
