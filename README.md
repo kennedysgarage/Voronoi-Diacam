@@ -7,5 +7,5 @@ Our project for the [Photo Hack Day](http://photohackday.org/).
 * David Cilia
 * Alexander Sagalovskiy
 * Shepherd x
-* Axel Forest
+* Axel Forest - [@Axel+](https://plus.google.com/111877466130379504403)
 * Christopher Kennedy - [@KennedysGarage](http://twitter.com/kennedysgarage)
