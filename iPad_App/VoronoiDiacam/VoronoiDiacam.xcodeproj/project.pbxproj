@@ -29,8 +29,13 @@
 		660F607F1400151400EC868F /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F606E1400151400EC868F /* ASIHTTPRequest.m */; };
 		660F60801400151400EC868F /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F60721400151400EC868F /* ASIInputStream.m */; };
 		660F60811400151400EC868F /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F60741400151400EC868F /* ASINetworkQueue.m */; };
-		660F60821400151400EC868F /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F60771400151400EC868F /* ASIWebPageRequest.m */; };
 		660F60831400151400EC868F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F60791400151400EC868F /* Reachability.m */; };
+		660F6089140016B300EC868F /* Canvas.xib in Resources */ = {isa = PBXBuildFile; fileRef = 660F6088140016B300EC868F /* Canvas.xib */; };
+		660F608C14001CC900EC868F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F608B14001CC900EC868F /* QuartzCore.framework */; };
+		660F608E14001CD700EC868F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F608D14001CD700EC868F /* CFNetwork.framework */; };
+		660F609014001CDE00EC868F /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F608F14001CDE00EC868F /* libz.1.2.3.dylib */; };
+		660F609814001E5700EC868F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F609714001E5700EC868F /* SystemConfiguration.framework */; };
+		660F609A14001E5D00EC868F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F609914001E5D00EC868F /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,10 +88,14 @@
 		660F60731400151400EC868F /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASINetworkQueue.h; path = "Open Source/ASIHTTPRequest/ASINetworkQueue.h"; sourceTree = "<group>"; };
 		660F60741400151400EC868F /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASINetworkQueue.m; path = "Open Source/ASIHTTPRequest/ASINetworkQueue.m"; sourceTree = "<group>"; };
 		660F60751400151400EC868F /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIProgressDelegate.h; path = "Open Source/ASIHTTPRequest/ASIProgressDelegate.h"; sourceTree = "<group>"; };
-		660F60761400151400EC868F /* ASIWebPageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIWebPageRequest.h; path = "Open Source/ASIHTTPRequest/ASIWebPageRequest.h"; sourceTree = "<group>"; };
-		660F60771400151400EC868F /* ASIWebPageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIWebPageRequest.m; path = "Open Source/ASIHTTPRequest/ASIWebPageRequest.m"; sourceTree = "<group>"; };
 		660F60781400151400EC868F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "Open Source/ASIHTTPRequest/Reachability.h"; sourceTree = "<group>"; };
 		660F60791400151400EC868F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "Open Source/ASIHTTPRequest/Reachability.m"; sourceTree = "<group>"; };
+		660F6088140016B300EC868F /* Canvas.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Canvas.xib; sourceTree = "<group>"; };
+		660F608B14001CC900EC868F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		660F608D14001CD700EC868F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		660F608F14001CDE00EC868F /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
+		660F609714001E5700EC868F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		660F609914001E5D00EC868F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +103,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660F609A14001E5D00EC868F /* MobileCoreServices.framework in Frameworks */,
+				660F609814001E5700EC868F /* SystemConfiguration.framework in Frameworks */,
+				660F609014001CDE00EC868F /* libz.1.2.3.dylib in Frameworks */,
+				660F608E14001CD700EC868F /* CFNetwork.framework in Frameworks */,
+				660F608C14001CC900EC868F /* QuartzCore.framework in Frameworks */,
 				660F5FD314000D1500EC868F /* UIKit.framework in Frameworks */,
 				660F5FD514000D1500EC868F /* Foundation.framework in Frameworks */,
 				660F5FD714000D1500EC868F /* CoreGraphics.framework in Frameworks */,
@@ -123,6 +137,11 @@
 		660F5FD114000D1500EC868F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				660F609914001E5D00EC868F /* MobileCoreServices.framework */,
+				660F609714001E5700EC868F /* SystemConfiguration.framework */,
+				660F608F14001CDE00EC868F /* libz.1.2.3.dylib */,
+				660F608D14001CD700EC868F /* CFNetwork.framework */,
+				660F608B14001CC900EC868F /* QuartzCore.framework */,
 				660F5FD214000D1500EC868F /* UIKit.framework */,
 				660F5FD414000D1500EC868F /* Foundation.framework */,
 				660F5FD614000D1500EC868F /* CoreGraphics.framework */,
@@ -138,6 +157,7 @@
 				660F5FE214000D1500EC868F /* VoronoiDiacamAppDelegate.m */,
 				660F5FE414000D1500EC868F /* MainWindow.xib */,
 				660F5FD914000D1500EC868F /* Supporting Files */,
+				660F6088140016B300EC868F /* Canvas.xib */,
 			);
 			path = VoronoiDiacam;
 			sourceTree = "<group>";
@@ -187,8 +207,6 @@
 				660F60731400151400EC868F /* ASINetworkQueue.h */,
 				660F60741400151400EC868F /* ASINetworkQueue.m */,
 				660F60751400151400EC868F /* ASIProgressDelegate.h */,
-				660F60761400151400EC868F /* ASIWebPageRequest.h */,
-				660F60771400151400EC868F /* ASIWebPageRequest.m */,
 				660F60781400151400EC868F /* Reachability.h */,
 				660F60791400151400EC868F /* Reachability.m */,
 			);
@@ -283,6 +301,7 @@
 			files = (
 				660F5FDD14000D1500EC868F /* InfoPlist.strings in Resources */,
 				660F5FE614000D1500EC868F /* MainWindow.xib in Resources */,
+				660F6089140016B300EC868F /* Canvas.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +329,6 @@
 				660F607F1400151400EC868F /* ASIHTTPRequest.m in Sources */,
 				660F60801400151400EC868F /* ASIInputStream.m in Sources */,
 				660F60811400151400EC868F /* ASINetworkQueue.m in Sources */,
-				660F60821400151400EC868F /* ASIWebPageRequest.m in Sources */,
 				660F60831400151400EC868F /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,7 +405,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VoronoiDiacam/VoronoiDiacam-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "VoronoiDiacam/VoronoiDiacam-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -398,7 +418,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VoronoiDiacam/VoronoiDiacam-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "VoronoiDiacam/VoronoiDiacam-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
