@@ -13,5 +13,6 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) RootViewController *rootViewController;
+@property (nonatomic, retain) UINavigationController *navController;
 
 @end
