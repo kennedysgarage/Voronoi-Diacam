@@ -8,19 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface RootViewController : UIViewController <UIWebViewDelegate,UIAlertViewDelegate,UIActionSheetDelegate>
 
 {
     UIWebView *browser;
-    UIToolbar *bottomToolBar;
     UIActivityIndicatorView *activityView;
 }
 
 @property (nonatomic, retain) UIWebView *browser;
-@property (nonatomic, retain) UIToolbar *bottomToolBar;
 @property (nonatomic, retain) UIActivityIndicatorView *activityView;
+@property (nonatomic, retain) UIActivityIndicatorView *lActivityView; //landscape
 
 - (void)checkin:(id)sender; //checkin method
-
 
 @end

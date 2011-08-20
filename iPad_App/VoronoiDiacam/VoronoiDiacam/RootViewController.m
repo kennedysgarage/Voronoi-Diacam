@@ -8,9 +8,11 @@
 
 #import "RootViewController.h"
 
+#define SCREEN_FRAME [[UIScreen mainScreen]applicationFrame]
+
 @implementation RootViewController
 
-@synthesize browser,activityView,bottomToolBar;
+@synthesize browser,activityView,lActivityView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -18,14 +20,27 @@
     if (self) {
         // Custom initialization
         
-        browser = [[UIWebView alloc]initWithFrame:CGRectMake(0.0, 0.0, 1024.0, 706.0)];
-        bottomToolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0.0, 706.0, 1024.0, 44.0)];
-        activityView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(980.0, 709.0, 37.0, 37.0)];
+       
+        [self setTitle:@"Photohackday.org"];
+        
+        activityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [self.activityView setFrame:CGRectMake(700,900, 37.0, 37.0)];
+        [self.activityView setHidesWhenStopped:YES];
+        
+        
+        browser = [[UIWebView alloc]init];
+        [self.browser setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+        [self.browser setFrame:CGRectMake(0.0, 0.0, 768.0, 1006.0)];
+        
+        
+        lActivityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [self.lActivityView setFrame:CGRectMake(950,650, 37.0, 37.0)];
+        [self.lActivityView setHidden:YES];
+        [self.lActivityView setHidesWhenStopped:YES];
+        
+       
         
         [self.browser setDelegate:self];
-        [self.bottomToolBar setAlpha:0.80];
-        
-        
     }
     
     return self;
@@ -60,12 +75,13 @@
     
     
     UIBarButtonItem *checkinButton = [[UIBarButtonItem alloc]initWithTitle:@"Check In" style:UIBarButtonItemStyleBordered target:self action:@selector(checkin:)];
-    NSArray *toolbarItems = [NSArray arrayWithObject:checkinButton];
-    [self.bottomToolBar setItems:toolbarItems];
-    
+    [self.navigationItem setLeftBarButtonItem:checkinButton];
+    [checkinButton release];
     [self.view addSubview:self.browser];
-    [self.view addSubview:self.bottomToolBar];
     [self.view addSubview:self.activityView];
+    [self.view bringSubviewToFront:self.activityView];
+    [self.view addSubview:self.lActivityView];
+    
 }
 
 
@@ -75,26 +91,65 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.browser = nil;
-    self.bottomToolBar = nil;
     self.activityView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-	return YES;
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight){
+        
+        //unhide the landscape activity view, hide the portrait one.
+        if (self.lActivityView.isAnimating == YES){
+            [self.lActivityView setHidden:NO];
+        }
+        
+        [self.activityView setHidden:YES];
+    }
+    
+    if (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown ) {
+        
+        
+        [self.lActivityView setHidden:YES];
+        
+        if (self.activityView.isAnimating == YES) {
+            [self.activityView setHidden:NO];
+        }
+        
+    }
+    
+    return YES;
 }
 
 - (void)dealloc {
     
     [browser release];
     [activityView release];
-    [bottomToolBar release];
     [super dealloc];
+}
+
+#pragma UIWebViewDelegate Delegate Methods
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    
+    NSLog(@"webViewDidStartLoad:/n %@",self.browser.request.URL);
+    
+    [self.activityView startAnimating];
+    [self.lActivityView startAnimating];
+    
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    NSLog(@"WebView did finish load: /n %@",self.browser.request.URL);
+    
+    [self.activityView stopAnimating];
+    [self.lActivityView stopAnimating];
 }
 
 - (void)checkin:(id)sender {
     
+    [self.browser reload];
     //foursquare
 }
+
+
 @end

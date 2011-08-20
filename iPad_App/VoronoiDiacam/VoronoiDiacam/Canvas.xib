@@ -48,9 +48,9 @@
 					<object class="IBUIWebView" id="148921964">
 						<reference key="NSNextResponder" ref="889086865"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{1024, 706}</string>
+						<string key="NSFrameSize">{768, 962}</string>
 						<reference key="NSSuperview" ref="889086865"/>
-						<reference key="NSNextKeyView" ref="432484974"/>
+						<reference key="NSNextKeyView" ref="425253067"/>
 						<string key="NSReuseIdentifierKey">_NS:668</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -63,8 +63,9 @@
 					<object class="IBUIToolbar" id="432484974">
 						<reference key="NSNextResponder" ref="889086865"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 706}, {1024, 44}}</string>
+						<string key="NSFrame">{{0, 962}, {768, 44}}</string>
 						<reference key="NSSuperview" ref="889086865"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:345</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -83,6 +84,18 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{980, 709}, {37, 37}}</string>
 						<reference key="NSSuperview" ref="889086865"/>
+						<reference key="NSNextKeyView" ref="432484974"/>
+						<string key="NSReuseIdentifierKey">_NS:853</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIHidesWhenStopped">NO</bool>
+						<int key="IBUIStyle">0</int>
+					</object>
+					<object class="IBUIActivityIndicatorView" id="772707739">
+						<reference key="NSNextResponder" ref="889086865"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{726, 965}, {37, 37}}</string>
+						<reference key="NSSuperview" ref="889086865"/>
 						<string key="NSReuseIdentifierKey">_NS:853</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -90,7 +103,7 @@
 						<int key="IBUIStyle">0</int>
 					</object>
 				</object>
-				<string key="NSFrame">{{0, 20}, {1024, 748}}</string>
+				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="148921964"/>
 				<string key="NSReuseIdentifierKey">_NS:195</string>
@@ -4493,10 +4506,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
 					<int key="IBUIStatusBarStyle">2</int>
 				</object>
-				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
-					<int key="IBUIInterfaceOrientation">3</int>
-					<int key="interfaceOrientation">3</int>
-				</object>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 		</object>
@@ -4529,9 +4538,10 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<reference key="object" ref="889086865"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="148921964"/>
 							<reference ref="432484974"/>
 							<reference ref="425253067"/>
+							<reference ref="148921964"/>
+							<reference ref="772707739"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -4559,6 +4569,11 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<reference key="object" ref="425253067"/>
 						<reference key="parent" ref="889086865"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">34</int>
+						<reference key="object" ref="772707739"/>
+						<reference key="parent" ref="889086865"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -4571,6 +4586,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<string>13.IBPluginDependency</string>
 					<string>2.IBPluginDependency</string>
 					<string>33.IBPluginDependency</string>
+					<string>34.IBPluginDependency</string>
 					<string>7.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 				</object>
@@ -4578,6 +4594,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -4598,7 +4615,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">33</int>
+			<int key="maxID">34</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
