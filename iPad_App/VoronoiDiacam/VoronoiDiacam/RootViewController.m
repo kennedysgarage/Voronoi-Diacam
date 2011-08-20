@@ -10,12 +10,24 @@
 
 @implementation RootViewController
 
+@synthesize browser,activityView,bottomToolBar;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        browser = [[UIWebView alloc]initWithFrame:CGRectMake(0.0, 0.0, 1024.0, 706.0)];
+        bottomToolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0.0, 706.0, 1024.0, 44.0)];
+        activityView = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(980.0, 709.0, 37.0, 37.0)];
+        
+        [self.browser setDelegate:self];
+        [self.bottomToolBar setAlpha:0.80];
+        
+        
     }
+    
     return self;
 }
 
@@ -36,19 +48,35 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSURL *url = [NSURL URLWithString:@"http://voronoidiacam.com/"];
+    NSURLRequest *browserRequest = [NSURLRequest requestWithURL:url];
+    [self.browser loadRequest:browserRequest];
+    
+    
+    UIBarButtonItem *checkinButton = [[UIBarButtonItem alloc]initWithTitle:@"Check In" style:UIBarButtonItemStyleBordered target:self action:@selector(checkin:)];
+    NSArray *toolbarItems = [NSArray arrayWithObject:checkinButton];
+    [self.bottomToolBar setItems:toolbarItems];
+    
+    [self.view addSubview:browser];
+    [self.view addSubview:bottomToolBar];
+    [self.view addSubview:self.activityView];
 }
-*/
+
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.browser = nil;
+    self.bottomToolBar = nil;
+    self.activityView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -57,4 +85,16 @@
 	return YES;
 }
 
+- (void)dealloc {
+    
+    [browser release];
+    [activityView release];
+    [bottomToolBar release];
+    [super dealloc];
+}
+
+- (void)checkin:(id)sender {
+    
+    //foursquare
+}
 @end

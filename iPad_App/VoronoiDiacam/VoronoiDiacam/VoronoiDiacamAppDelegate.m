@@ -11,10 +11,14 @@
 @implementation VoronoiDiacamAppDelegate
 
 @synthesize window = _window;
+@synthesize rootViewController = _rootViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    _rootViewController = [[RootViewController alloc]init];
+    
     // Override point for customization after application launch.
+    [self.window addSubview:_rootViewController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
