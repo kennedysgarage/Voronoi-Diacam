@@ -58,9 +58,9 @@ function redraw( data ) {
         console.debug(data);
 //replace this max* with values from files
 var minlat = 40.700943;
-var minlong = -74.019184
-var maxlat = 40.87731 ;
-var maxlong = -73.911037
+var minlong = -74.019184;
+var maxlat = 40.87731;
+var maxlong = -73.911037;
     // calculate min max range multiplier
     var minlat = null, minlong = null, maxlat = null, maxlong = null;
     for( var idx in data ) {
