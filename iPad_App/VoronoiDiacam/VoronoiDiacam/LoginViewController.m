@@ -8,13 +8,16 @@
 
 #import "LoginViewController.h"
 
+
 @implementation LoginViewController
+@synthesize apimanager;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        apimanager = [[ApiManager alloc]init];
     }
     return self;
 }
@@ -32,7 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -143,6 +148,10 @@
 */
 
 #pragma mark - Table view delegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
