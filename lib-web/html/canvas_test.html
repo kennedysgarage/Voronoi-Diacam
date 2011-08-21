@@ -1,0 +1,174 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Google Maps JavaScript API v3 Example: Map Geolocation</title> 
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> 
+    <meta charset="UTF-8"> 
+    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css"
+      rel="stylesheet" type="text/css"> 
+    <!--
+    Include the maps javascript with sensor=true because this code is using a
+    sensor (a GPS locator) to determine the user's location.
+    See: http://code.google.com/apis/maps/documentation/javascript/basics.html#SpecifyingSensor
+    --> 
+    <script type="text/javascript"
+        src="http://maps.googleapis.com/maps/api/js?sensor=true"></script> 
+ 
+    <script type="text/javascript"> 
+
+//ini shape triangle
+function initialize() {
+var myLatlng = new google.maps.LatLng(40.752524, -73.973866);
+
+  var myOptions = {
+    zoom: 15,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+  var icon = new google.maps.MarkerImage("http://a0.twimg.com/profile_images/1496635118/PHD_200.png");
+/*
+var triangleCoords = [
+new google.maps.LatLng(40.752524, -73.973866),
+new google.maps.LatLng(40.763446, -73.99498),
+new google.maps.LatLng(40.770987, -73.966827),
+new google.maps.LatLng(40.752524, -73.973866)
+];
+*/
+
+function getCanvas(){
+// Grab the Canvas and Drawing Context
+var canvas = document.getElementById('c');
+//var canvas = document.createElement("canvas");
+//canvas.width = '200'+;
+//canvas.height = '158';
+var ctx = canvas.getContext('2d');
+
+
+
+// Create an image element
+var img = document.createElement('IMG');
+
+// When the image is loaded, draw it
+img.onload = function () {
+
+    // Save the state, so we can undo the clipping
+    ctx.save();
+    
+    
+    // Create a shape, of some sort
+    ctx.beginPath();
+    ctx.moveTo(10, 10);
+    ctx.lineTo(100, 30);
+    ctx.lineTo(180, 10);
+    ctx.lineTo(200, 60);
+    ctx.arcTo(180, 70, 120, 0, 10);
+    ctx.lineTo(200, 180);
+    ctx.lineTo(100, 150);
+    ctx.lineTo(70, 180);
+    ctx.lineTo(20, 130);
+    ctx.lineTo(50, 70);
+    ctx.closePath();
+    // Clip to the current path
+    ctx.clip();
+    
+    
+    ctx.drawImage(img, 0, 0);
+    
+    // Undo the clipping
+    ctx.restore();
+console.debug('onload');
+console.debug(canvas);
+console.debug(ctx);
+
+console.debug('fromLatLngToPixel');
+/*
+  var marker = new google.maps.Marker({
+      position: myLatlng, 
+      map: map, 
+      title:"Hello World!",
+      icon : icon 
+      });
+*/
+placeVoronoi();
+google.maps.event.addListener(map, 'drag', function(){
+  placeVoronoi();
+});
+
+google.maps.event.addListener(map, 'zoom_changed', function(){
+  placeVoronoi();
+});
+
+}
+
+function placeVoronoi(){
+console.debug('map.getProjection()');
+console.debug(map.getProjection());
+//console.debug(G_NORMAL_MAP.getProjection());
+//var myPixel = map.getProjection().fromLatLngToPoint(myLatlng);
+var myPixel = convertPoint(myLatlng);
+var myPoint = map.getProjection().fromPointToLatLng(myPixel);
+console.debug('myPoint');
+console.debug(myPoint);
+console.debug('myPixel');
+console.debug(myPixel);
+m = myPixel;
+c = canvas;
+console.debug(myPixel.y);
+//canvas.style.left = myPixel.y+canvas.width+'px';
+canvas.style.left = myPixel.x+'px';
+//canvas.style.top = myPixel.x+canvas.height+'px';
+canvas.style.top = myPixel.y+'px';
+console.debug('updating cell---------------------------------------');
+}
+
+function convertPoint(latLng) {
+         var
+topRight=map.getProjection().fromLatLngToPoint(map.getBounds().getNorthEast());
+         var
+bottomLeft=map.getProjection().fromLatLngToPoint(map.getBounds().getSouthWest());
+         var scale=Math.pow(2,map.getZoom());
+         var worldPoint=map.getProjection().fromLatLngToPoint(latLng);
+         return new google.maps.Point((worldPoint.x-
+bottomLeft.x)*scale,(worldPoint.y-topRight.y)*scale);
+       } 
+
+// Specify the src to load the image
+img.src = "http://i.imgur.com/gwlPu.jpg";
+
+//return canvas;
+}
+getCanvas();
+//var canvas = getCanvas();
+//console.debug(canvas);
+/*  var marker = new google.maps.Marker({
+      position: myLatlng, 
+      map: map, 
+      title:"Hello World!",
+      icon : canvas.toDataUrl(),
+    /*  shape: {
+	type: "poly",
+	coord: [1,1, 1, 5, 2, 6, 3, 7, 1, 1 ]
+      }
+     */
+//  });
+
+//console.debug('marker.getShape()');
+//console.debug(marker.getShape());
+//marker.setShape();
+/*
+  google.maps.event.addDomListener(marker,'mouseout',function(){
+alert('handling mouseout');
+})
+*/
+}
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script> 
+  </head> 
+  <body> 
+    <div id="map_canvas"></div>
+<canvas id="c" width="200" height="158" style="z-index:1 ; position: absolute;"></canvas>
+  </body> 
+</html> 
