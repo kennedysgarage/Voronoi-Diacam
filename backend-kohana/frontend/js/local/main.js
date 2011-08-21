@@ -56,7 +56,11 @@ function redraw( data ) {
 
         console.debug( 'redrawing...', $(config.mapContainerName) );
         console.debug(data);
-
+//replace this max* with values from files
+var minlat = 40.700943;
+var minlong = -74.019184
+var maxlat = 40.87731 ;
+var maxlong = -73.911037
     // calculate min max range multiplier
     var minlat = null, minlong = null, maxlat = null, maxlong = null;
     for( var idx in data ) {
@@ -67,11 +71,21 @@ function redraw( data ) {
         if( !maxlong || data[idx].long - maxlong > 0 ) maxlong = data[idx].long;
       }
     }
-
+    //loop and multiple latmult to get pixels
+    //latmult*
     var latrange = maxlat - minlat;
     var longrange = maxlong - minlong;
+    
     var latmult = w/latrange;
     var longmult = h/longrange;
+    //loop lat *= latmult
+
+    for( var idx in data ) {
+        if( data.hasOwnProperty( idx )) {
+        data[idx].lat = data[idx].lat * latmut;
+        data[idx].long = data[idx].long * longmult;
+        }
+     }
 
 //console.debug('lmlm:',minlat,maxlat,minlong,maxlong,latrange,longrange,latmult,longmult);
 
