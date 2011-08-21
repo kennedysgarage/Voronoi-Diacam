@@ -57,43 +57,129 @@ function redraw( data ) {
         console.debug( 'redrawing...', $(config.mapContainerName) );
         console.debug(data);
 //replace this max* with values from files
-var minlat = 40.700943;
-var minlong = -74.019184;
-var maxlat = 40.87731;
-var maxlong = -73.911037;
-    // calculate min max range multiplier
-    var minlat = null, minlong = null, maxlat = null, maxlong = null;
-    for( var idx in data ) {
-      if( data.hasOwnProperty( idx )) {
-        if( !minlat || data[idx].lat - minlat < 0 ) minlat = data[idx].lat;
-        if( !maxlat || data[idx].lat - maxlat > 0 ) maxlat = data[idx].lat;
-        if( !minlong || data[idx].long - minlong < 0 ) minlong = data[idx].long;
-        if( !maxlong || data[idx].long - maxlong > 0 ) maxlong = data[idx].long;
-      }
-    }
-    //loop and multiple latmult to get pixels
-    //latmult*
-    var latrange = maxlat - minlat;
-    var longrange = maxlong - minlong;
-    
-    var latmult = w/latrange;
-    var longmult = h/longrange;
-    //loop lat *= latmult
+    var minlat = 40.700943;
+    var minlong = -74.019184;
+    var maxlat = 40.87731;
+    var maxlong = -73.911037;
+
+    var latmult = w/(maxlat - minlat);
+    var longmult = h/(maxlong - minlong);
 
     for( var idx in data ) {
         if( data.hasOwnProperty( idx )) {
-        data[idx].lat = data[idx].lat * latmut;
-        data[idx].long = data[idx].long * longmult;
+        data[idx].lat = (data[idx].lat - latmin) * latmut;
+        data[idx].long = (data[idx].long -longmin) * longmult;
         }
      }
 
+    var boundary = [{"lat":40.701984,"long":-74.016094},
+        {"lat":40.706018, "long":-74.019184},
+        {"lat":40.718445, "long":-74.016523},
+        {"lat":40.718249, "long":-74.013262},
+        {"lat":40.751939, "long":-74.008198},
+        {"lat":40.771442, "long":-73.994808},
+        {"lat":40.82693, "long":-73.955498},
+        {"lat":40.843814, "long":-73.946228},
+        {"lat":40.87731, "long":-73.926315},
+        {"lat":40.87705, "long":-73.922367},
+        {"lat":40.874584, "long":-73.915672},
+        {"lat":40.872377, "long":-73.911037},
+        {"lat":40.867834, "long":-73.911381},
+        {"lat":40.859006, "long":-73.919621},
+        {"lat":40.843814, "long":-73.930435},
+        {"lat":40.832775, "long":-73.93507},
+        {"lat":40.809782, "long":-73.934727},
+        {"lat":40.797697, "long":-73.92889},
+        {"lat":40.79042, "long":-73.936272},
+        {"lat":40.782751, "long":-73.943653},
+        {"lat":40.775732, "long":-73.94228},
+        {"lat":40.737242, "long":-73.974724},
+        {"lat":40.729438, "long":-73.972492},
+        {"lat":40.711093, "long":-73.977299},
+        {"lat":40.708231, "long":-73.9991},
+        {"lat":40.700943, "long":-74.013348},
+        {"lat":40.701984, "long":-74.016094}];
+
+        for( var idx in boundary ) {
+            if( boundary.hasOwnProperty( idx )) {
+            boundary[idx].lat = (boundary[idx].lat - latmin) * latmut;
+            boundary[idx].long = (boundary[idx].long -longmin) * longmult;
+            }
+        }
+
+        // find intesection of line and shape
+        var poly_intersect = function(p1, p2, polygon) {
+            for (var idx in polygon) {
+                if( polygon.hasOwnProperty( idx )) {
+                    if (idx == 0) {
+                        prev = polygon[polygon.length - 1];
+                    } else {
+                        prev = polygon[idx - 1];
+                    }
+
+                    var intersect = line_intersect(p1, p2, prev, polygon[idx]); 
+                    if (intersect) {
+                        return {idx:idx, point:intersect};
+                    }
+                }
+            }
+            return null;
+        };
+
+
+    // clip to boundary;
+        var axel_clip = function(shapes) {
+        for( var idx in shapes ) {
+          if( shapes.hasOwnProperty( idx )) {
+          var shape = shapes[idx];
+          var first_intersect = null;
+          var clipped_poly = [];
+          var border_start = null;
+
+          for (var idy in shape) {
+             if( shape.hasOwnProperty( idy )) {
+                 // x == 0 == lat, y = 1 = long
+               if (shape[idy][0] <= 0 || shape[idy][0] >= w || shape[idy][1] <= 1 || shape[idy][1] >= h) {
+                  // if first point, then 
+                  if (idy == 0) {
+                        prev = shape[shape.length - 1];
+                  } else {
+                        prev = shape[idy - 1];
+                  }
+                  // 1 intersect1 -= find intersection prev - shape[idy] agains boundry
+                  var intersect = poly_intersect(prev, shape[idy], boundary );
+                  if (intersect) {
+                        if (first_intersect) {
+                            clipped_poly[] = first_intersect;
+                            for (var clipx = border_start;  clipx < intersect.idx; clipx++) {
+                                clipped_poly[] = boundary[clipx];
+                            }
+                            clipped_poly[] = intersect.point;
+
+                            first_intersect = null;
+                            border_start = null;
+                        } else {
+                            first_intersect = intersect.point;
+                            border_start = intersect.idx;
+                        }
+                  } else if (!first_intersect) {
+                        clipped_poly[] = shape[idy];
+                  }
+
+                  // 
+               }
+             }
+          }
+          shapes[idx] = clipped_poly;
+        }
+          return shapes;
+        };
 //console.debug('lmlm:',minlat,maxlat,minlong,maxlong,latrange,longrange,latmult,longmult);
 
     var vertices = [];
     for( var idx in data ) {
       if( data.hasOwnProperty( idx )) {
-        //TODO: REMOVE RANDOM!!!
-        vertices.push( [Math.round(Math.random()*10+(latmult*(data[idx].lat-minlat))),Math.round((latmult*(data[idx].long-minlong)))] ); //latmult preserves aspect ratio
+        vertices.push( [data[idx].lat,data[idx].long] ); 
         //console.debug(vertices[idx],data[idx].url);
       }
     }
@@ -105,7 +191,7 @@ svg.selectAll("path")
 */
 
 svg.selectAll("path")
-    .data(d3.geom.voronoi(vertices))
+    .data(axel_clip(d3.geom.voronoi(vertices)))
     .enter().append("svg:path")
 //    .attr("class", function(d, i) { return i ? "q" + (i % 9) + "-9" : null; })
     .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
