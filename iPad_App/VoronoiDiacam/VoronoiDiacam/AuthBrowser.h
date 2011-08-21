@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Constants.h"
 
+@class VoronoiDiacamAppDelegate;
+
 @interface AuthBrowser : UIViewController <UIWebViewDelegate>
 
 {
@@ -16,5 +18,7 @@
 }
 
 @property (nonatomic, retain) UIWebView *authWebView;
+
+- (void)dismissView:(id)sender;
 
 @end

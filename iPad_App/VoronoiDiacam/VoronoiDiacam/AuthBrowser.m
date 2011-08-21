@@ -7,6 +7,7 @@
 //
 
 #import "AuthBrowser.h"
+#import "VoronoiDiacamAppDelegate.h"
 
 
 @implementation AuthBrowser
@@ -38,6 +39,7 @@
 - (void)loadView
 {
     self.view = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 768.0, 1024)];
+    [self.view setBackgroundColor:[UIColor clearColor]];
 }
 
 
@@ -48,17 +50,25 @@
     [super viewDidLoad];
     self.authWebView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     [self.authWebView setDelegate:self];
+    [self.authWebView setBackgroundColor:[UIColor clearColor]];
+    [self.authWebView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
     NSString *authenticateURLString = [NSString stringWithFormat:@"https://foursquare.com/oauth2/authenticate?client_id=%@&response_type=token&redirect_uri=%@", CLIENT_ID,CALLBACK_URL];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authenticateURLString]];
     [self.authWebView loadRequest:request];
     
     [self.view addSubview:self.authWebView];
+    
+    UIBarButtonItem *dismissButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissView:)];
+    
+    [self.navigationItem setRightBarButtonItem:dismissButton];
+    [dismissButton release];
 }
 
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.authWebView = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -67,12 +77,14 @@
 {
     // Return YES for supported orientations
     
-    if (interfaceOrientation == UIInterfaceOrientationPortrait) {
-        return YES;
-    }
-    else {
-        return NO;
-    }
+   // if (interfaceOrientation == UIInterfaceOrientationPortrait) {
+  //      return YES;
+  //  }
+   // else {
+    //    return NO;
+    //}
+    
+    return YES;
 }
 
 #pragma UIWebViewDelegateMethods
@@ -94,10 +106,19 @@
         [defaults setObject:accessToken forKey:@"access_token"];
         [defaults synchronize];
         [self dismissModalViewControllerAnimated:YES];
+        
     }
 
 }
 
+- (void)dealloc {
+    
+    [authWebView release];
+    [super dealloc];
+}
 
+- (void)dismissView:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 @end

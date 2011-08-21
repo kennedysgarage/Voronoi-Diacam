@@ -147,7 +147,14 @@
 
 - (void)checkin:(id)sender {
     
-    [self.browser reload];
+    AuthBrowser *webview = [[AuthBrowser alloc]init];
+    UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:webview];
+    [webview setTitle:@"Sign In Foursquare"];
+    [self presentModalViewController:navC animated:YES];
+    [webview release];
+    [navC release];
+    
+    
     //foursquare
 }
 

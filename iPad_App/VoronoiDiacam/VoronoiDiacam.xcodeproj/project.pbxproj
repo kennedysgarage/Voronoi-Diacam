@@ -38,7 +38,7 @@
 		660F60AA140023CC00EC868F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F60A9140023CC00EC868F /* RootViewController.m */; };
 		6636D304140144B800BF6113 /* AuthBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6636D303140144B800BF6113 /* AuthBrowser.m */; };
 		666A671A140131F200E1BE6C /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 666A6719140131F200E1BE6C /* ApiManager.m */; };
-		666A6724140135C300E1BE6C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666A6723140135C300E1BE6C /* LoginViewController.m */; };
+		66AB18BF14015442004DF40B /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66AB18BE14015442004DF40B /* user.plist */; };
 		66B482181400248F000BBB09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B482171400248F000BBB09 /* CoreLocation.framework */; };
 		66B4821B1400249F000BBB09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B4821A1400249F000BBB09 /* MapKit.framework */; };
 		9A1DA0831401225900368DFA /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DA0821401225900368DFA /* Constants.m */; };
@@ -108,8 +108,7 @@
 		6636D303140144B800BF6113 /* AuthBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthBrowser.m; sourceTree = "<group>"; };
 		666A6718140131F200E1BE6C /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
 		666A6719140131F200E1BE6C /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
-		666A6722140135C300E1BE6C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		666A6723140135C300E1BE6C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		66AB18BE14015442004DF40B /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
 		66B482171400248F000BBB09 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66B4821A1400249F000BBB09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9A1DA0811401225900368DFA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -196,6 +195,7 @@
 				660F5FDB14000D1500EC868F /* InfoPlist.strings */,
 				660F5FDE14000D1500EC868F /* main.m */,
 				660F5FE014000D1500EC868F /* VoronoiDiacam-Prefix.pch */,
+				66AB18BE14015442004DF40B /* user.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -293,8 +293,6 @@
 			children = (
 				660F60A8140023CC00EC868F /* RootViewController.h */,
 				660F60A9140023CC00EC868F /* RootViewController.m */,
-				666A6722140135C300E1BE6C /* LoginViewController.h */,
-				666A6723140135C300E1BE6C /* LoginViewController.m */,
 				6636D302140144B800BF6113 /* AuthBrowser.h */,
 				6636D303140144B800BF6113 /* AuthBrowser.m */,
 			);
@@ -351,6 +349,7 @@
 				660F5FDD14000D1500EC868F /* InfoPlist.strings in Resources */,
 				660F5FE614000D1500EC868F /* MainWindow.xib in Resources */,
 				660F6089140016B300EC868F /* Canvas.xib in Resources */,
+				66AB18BF14015442004DF40B /* user.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +381,6 @@
 				660F60AA140023CC00EC868F /* RootViewController.m in Sources */,
 				9A1DA0831401225900368DFA /* Constants.m in Sources */,
 				666A671A140131F200E1BE6C /* ApiManager.m in Sources */,
-				666A6724140135C300E1BE6C /* LoginViewController.m in Sources */,
 				6636D304140144B800BF6113 /* AuthBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
