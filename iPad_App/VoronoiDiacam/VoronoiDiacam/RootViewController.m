@@ -32,6 +32,7 @@
         browser = [[UIWebView alloc]init];
         [self.browser setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
         [self.browser setFrame:CGRectMake(0.0, 0.0, 768.0, 1006.0)];
+        [self.browser setScalesPageToFit:YES];
         
         
         lActivityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -74,15 +75,15 @@
     NSURLRequest *browserRequest = [NSURLRequest requestWithURL:url];
     [self.browser loadRequest:browserRequest];
     
-    
     UIBarButtonItem *checkinButton = [[UIBarButtonItem alloc]initWithTitle:@"Check In" style:UIBarButtonItemStyleBordered target:self action:@selector(checkin:)];
-    [self.navigationItem setLeftBarButtonItem:checkinButton];
+   // [self.navigationItem setLeftBarButtonItem:checkinButton];
     [checkinButton release];
     [self.view addSubview:self.browser];
     [self.view addSubview:self.activityView];
     [self.view bringSubviewToFront:self.activityView];
     [self.view addSubview:self.lActivityView];
     
+    /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (![defaults objectForKey:@"access_token"]) {
      
@@ -93,6 +94,7 @@
         [webview release];
         [navC release];
     }
+     */
     
 }
 
