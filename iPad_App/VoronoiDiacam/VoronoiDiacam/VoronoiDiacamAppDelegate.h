@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "RootViewController.h"
 #import "SynthesizeSingleton.h"
+#import "TVOutManager.h"
 
 
 #define kFileName @"user.plist"

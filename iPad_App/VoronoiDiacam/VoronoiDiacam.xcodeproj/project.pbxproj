@@ -44,6 +44,7 @@
 		66AB18FF14015746004DF40B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66AB18FD14015746004DF40B /* DetailViewController.xib */; };
 		66B482181400248F000BBB09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B482171400248F000BBB09 /* CoreLocation.framework */; };
 		66B4821B1400249F000BBB09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B4821A1400249F000BBB09 /* MapKit.framework */; };
+		66BF5DE3140176CA009F524D /* TVOutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BF5DE2140176CA009F524D /* TVOutManager.m */; };
 		9A1DA0831401225900368DFA /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DA0821401225900368DFA /* Constants.m */; };
 		9A1DA085140122D200368DFA /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1DA084140122D200368DFA /* libz.1.2.3.dylib */; };
 /* End PBXBuildFile section */
@@ -120,6 +121,8 @@
 		66AB18FD14015746004DF40B /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		66B482171400248F000BBB09 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66B4821A1400249F000BBB09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		66BF5DE1140176CA009F524D /* TVOutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVOutManager.h; sourceTree = "<group>"; };
+		66BF5DE2140176CA009F524D /* TVOutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVOutManager.m; sourceTree = "<group>"; };
 		9A1DA0811401225900368DFA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		9A1DA0821401225900368DFA /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		9A1DA084140122D200368DFA /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
@@ -212,6 +215,8 @@
 		660F5FF0140013D200EC868F /* Open Source Code */ = {
 			isa = PBXGroup;
 			children = (
+				66BF5DE1140176CA009F524D /* TVOutManager.h */,
+				66BF5DE2140176CA009F524D /* TVOutManager.m */,
 				661EB97614016486009DFA51 /* SynthesizeSingleton.h */,
 				660F5FF5140013FE00EC868F /* MBProgressHUD */,
 				660F5FF4140013EF00EC868F /* SDWebImage */,
@@ -408,6 +413,7 @@
 				6636D304140144B800BF6113 /* AuthBrowser.m in Sources */,
 				66AB18FA14015710004DF40B /* MasterViewController.m in Sources */,
 				66AB18FE14015746004DF40B /* DetailViewController.m in Sources */,
+				66BF5DE3140176CA009F524D /* TVOutManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

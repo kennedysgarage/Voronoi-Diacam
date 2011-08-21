@@ -20,6 +20,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(VoronoiDiacamAppDelegate)
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    
     _rootViewController = [[RootViewController alloc]init];
     _navController = [[UINavigationController alloc]initWithRootViewController:_rootViewController];
     
@@ -48,6 +50,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(VoronoiDiacamAppDelegate)
     [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     [self.locationManager startUpdatingLocation];
     
+    [[TVOutManager sharedInstance]startTVOut];
     
     // Override point for customization after application launch.
     [self.window addSubview:_navController.view];
