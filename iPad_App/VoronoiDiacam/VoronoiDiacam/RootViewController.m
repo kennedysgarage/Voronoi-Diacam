@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 
+
 #define SCREEN_FRAME [[UIScreen mainScreen]applicationFrame]
 
 @implementation RootViewController
@@ -82,6 +83,17 @@
     [self.view bringSubviewToFront:self.activityView];
     [self.view addSubview:self.lActivityView];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:@"access_token"]) {
+     
+        AuthBrowser *webview = [[AuthBrowser alloc]init];
+        UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:webview];
+        [webview setTitle:@"Sign In Foursquare"];
+        [self presentModalViewController:navC animated:YES];
+        [webview release];
+        [navC release];
+    }
+    
 }
 
 
@@ -146,16 +158,27 @@
 }
 
 - (void)checkin:(id)sender {
+   
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:@"access_token"]) {
+        
+        AuthBrowser *webview = [[AuthBrowser alloc]init];
+        UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:webview];
+        [webview setTitle:@"Sign In Foursquare"];
+        [self presentModalViewController:navC animated:YES];
+        [webview release];
+        [navC release];
+    }
+    else {
+        
+        MasterViewController *mview = [[MasterViewController alloc]initWithStyle:UITableViewStylePlain];
+        UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:mview];
+        [self presentModalViewController:navC animated:YES];
+        [navC release];
+        [mview release];
+        
+    }
     
-    AuthBrowser *webview = [[AuthBrowser alloc]init];
-    UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:webview];
-    [webview setTitle:@"Sign In Foursquare"];
-    [self presentModalViewController:navC animated:YES];
-    [webview release];
-    [navC release];
-    
-    
-    //foursquare
 }
 
 

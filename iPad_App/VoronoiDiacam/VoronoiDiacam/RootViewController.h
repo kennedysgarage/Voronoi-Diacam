@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AuthBrowser.h"
+#import "MasterViewController.h"
 
 
 @interface RootViewController : UIViewController <UIWebViewDelegate,UIAlertViewDelegate,UIActionSheetDelegate>

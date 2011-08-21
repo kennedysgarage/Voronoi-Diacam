@@ -8,7 +8,7 @@
 
 #import "ApiManager.h"
 
-NSString *APIRequestDidFinishNotification = @"RequestDidFinish";
+
 
 @implementation ApiManager
 @synthesize dataDict;
