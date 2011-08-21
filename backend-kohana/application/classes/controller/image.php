@@ -4,8 +4,9 @@ class Controller_Image extends Controller {
 
 	public function action_index()
 	{
+        $id = $this->request->param('id');
         $model = new Model_images();
-        $data = $model->getTimeslice(1);
+        $data = $model->getTimeslice($id);
         echo json_encode($data);
 	}
 
