@@ -10,6 +10,7 @@ class Model_images extends Model_database {
                     SELECT max(image_id) AS image_id
                     FROM frames
                     where frame_id = {$n}
+                    and sizex < 2000
                     GROUP BY venue_id
                 ) foo
                 USING (image_id)

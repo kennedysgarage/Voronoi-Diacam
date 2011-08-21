@@ -12,6 +12,10 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>apple.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.oprisksolutions.voronoidiacam</string>
 	<key>CFBundleInfoDictionaryVersion</key>

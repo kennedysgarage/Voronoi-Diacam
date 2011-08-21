@@ -71,7 +71,7 @@
 {
     [super viewDidLoad];
     
-    NSURL *url = [NSURL URLWithString:@"http://voronoidiacam.com/"];
+    NSURL *url = [NSURL URLWithString:@"http://asagal.neuropunks.org/frontend/html/"];
     NSURLRequest *browserRequest = [NSURLRequest requestWithURL:url];
     [self.browser loadRequest:browserRequest];
     
