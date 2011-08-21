@@ -106,6 +106,34 @@ function redraw( data ) {
             boundary[idx].long = (boundary[idx].long -longmin) * longmult;
             }
         }
+function line_intersect( v1, v2, p1, p2){
+  
+  var vslope = ( v1[1] - v2[1] )/ (v1[0] - v2[0]);
+  var pslope = ( p1[1] - p2[1] )/ (p1[0] - p2[0]);
+  
+  if (vslope == pslope)
+  {
+    //lines are paralel, they will not intersect anyway
+    return null;
+  }
+
+  var vb = v1[1] - vslope * v1[0];
+  var pb = p1[1] - pslope * p1[0];
+
+  var x = (pb + vb )/(vslope-pslope) ;
+  var y = vslope*x + vb;
+
+  if (x < Math.min(v1[0],v2[0]) || x > Math.max(v1[0],v1[0])) {
+    // no intersect
+    return null;
+  }
+  if (y < Math.min(v1[1],v2[1]) || y > Math.max(v1[1],v1[1])) {
+    //mo intersect
+    return null;
+  }
+
+ return [x, y];
+} 
 
         // find intesection of line and shape
         var poly_intersect = function(p1, p2, polygon) {
