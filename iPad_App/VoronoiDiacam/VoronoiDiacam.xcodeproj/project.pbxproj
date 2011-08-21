@@ -33,12 +33,13 @@
 		660F6089140016B300EC868F /* Canvas.xib in Resources */ = {isa = PBXBuildFile; fileRef = 660F6088140016B300EC868F /* Canvas.xib */; };
 		660F608C14001CC900EC868F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F608B14001CC900EC868F /* QuartzCore.framework */; };
 		660F608E14001CD700EC868F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F608D14001CD700EC868F /* CFNetwork.framework */; };
-		660F609014001CDE00EC868F /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F608F14001CDE00EC868F /* libz.1.2.3.dylib */; };
 		660F609814001E5700EC868F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F609714001E5700EC868F /* SystemConfiguration.framework */; };
 		660F609A14001E5D00EC868F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F609914001E5D00EC868F /* MobileCoreServices.framework */; };
 		660F60AA140023CC00EC868F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F60A9140023CC00EC868F /* RootViewController.m */; };
 		66B482181400248F000BBB09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B482171400248F000BBB09 /* CoreLocation.framework */; };
 		66B4821B1400249F000BBB09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B4821A1400249F000BBB09 /* MapKit.framework */; };
+		78AB9F111400342500C3B45E /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AB9F101400342500C3B45E /* libz.1.2.5.dylib */; };
+		78AB9F14140034E300C3B45E /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AB9F13140034E300C3B45E /* libz.1.2.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,8 @@
 		660F60A9140023CC00EC868F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		66B482171400248F000BBB09 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66B4821A1400249F000BBB09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		78AB9F101400342500C3B45E /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		78AB9F13140034E300C3B45E /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = ../../../../Desktop/libz.1.2.3.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,11 +113,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78AB9F14140034E300C3B45E /* libz.1.2.3.dylib in Frameworks */,
+				78AB9F111400342500C3B45E /* libz.1.2.5.dylib in Frameworks */,
 				66B4821B1400249F000BBB09 /* MapKit.framework in Frameworks */,
 				66B482181400248F000BBB09 /* CoreLocation.framework in Frameworks */,
 				660F609A14001E5D00EC868F /* MobileCoreServices.framework in Frameworks */,
 				660F609814001E5700EC868F /* SystemConfiguration.framework in Frameworks */,
-				660F609014001CDE00EC868F /* libz.1.2.3.dylib in Frameworks */,
 				660F608E14001CD700EC868F /* CFNetwork.framework in Frameworks */,
 				660F608C14001CC900EC868F /* QuartzCore.framework in Frameworks */,
 				660F5FD314000D1500EC868F /* UIKit.framework in Frameworks */,
@@ -129,6 +133,8 @@
 		660F5FC314000D1500EC868F = {
 			isa = PBXGroup;
 			children = (
+				78AB9F13140034E300C3B45E /* libz.1.2.3.dylib */,
+				78AB9F101400342500C3B45E /* libz.1.2.5.dylib */,
 				660F5FD814000D1500EC868F /* VoronoiDiacam */,
 				660F5FD114000D1500EC868F /* Frameworks */,
 				660F5FCF14000D1500EC868F /* Products */,
@@ -438,6 +444,10 @@
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "VoronoiDiacam/VoronoiDiacam-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Desktop\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -451,6 +461,10 @@
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "VoronoiDiacam/VoronoiDiacam-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Desktop\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

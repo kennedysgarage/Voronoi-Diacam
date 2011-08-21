@@ -1,6 +1,9 @@
 <?php
+function is_face(array $pic_urls, $hashes) {
+    if (count($pic_urls) > 30) {
+        return array();
+    }
 
-function is_face(array $pic_urls) {
     $out = array();
     $url = 'http://api.face.com/faces/detect.json?';
     $param = array(
@@ -13,12 +16,25 @@ function is_face(array $pic_urls) {
 
     $ret = do_curl($url);
     $j = json_decode($ret['html'], 1);
+
+    if (!array_key_exists('photos', $j)) {
+        var_dump($ret);exit;
+    }
+
+    $i = 0;
     foreach ($j['photos'] as $photo) {
         if ($photo['tags'][0]['attributes']['face']['value'] == 'true') {
-            $out[$photo['url']]['gender'] = $photo['tags'][0]['attributes']['gender']['value'];
-            $out[$photo['url']]['glasses'] = $photo['tags'][0]['attributes']['glasses']['value'];
-            $out[$photo['url']]['smiling'] = $photo['tags'][0]['attributes']['smiling']['value'];
+            $out['yes'][$i][$photo['url']]['gender'] = $photo['tags'][0]['attributes']['gender']['value'];
+            $out['yes'][$i][$photo['url']]['glasses'] = $photo['tags'][0]['attributes']['glasses']['value'];
+            $out['yes'][$i][$photo['url']]['smiling'] = $photo['tags'][0]['attributes']['smiling']['value'];
+            $out['yes'][$i][$photo['url']]['hash'] = $hashes[$photo['url']];
+        } else {
+            $out['no'][$i][$photo['url']]['gender'] = null;
+            $out['no'][$i][$photo['url']]['glasses'] = null;
+            $out['no'][$i][$photo['url']]['smiling'] = null;
+            $out['no'][$i][$photo['url']]['hash'] = $hashes[$photo['url']]; 
         }
+        $i++;
     }
 
     return $out;
@@ -30,6 +46,11 @@ function make_insert($p) {
     $urls = array('sq', 't', 's', 'm', 'z', 'l', 'o');
     foreach ($urls as $u) {
         if (strlen($p["url_".$u]) && strlen($p["height_".$u]) && strlen($p["width_".$u])) {
+            if ($p["width_".$u] + $p["height_".$u] > 800) continue;
+            if ($p["width_".$u] + $p["height_".$u] < 300) continue;
+            if ($p["width_".$u] / $p["height_".$u] > 3) continue;
+            if ($p["width_".$u] / $p["height_".$u] < 0.4) continue;
+
             echo "select autoin({$p['latitude']}, {$p['longitude']}, '{$p["url_".$u]}', {$p["height_".$u]}, {$p["width_".$u]}, '{$p['datetaken']}', '$hash');\n";
         }
     }
@@ -61,7 +82,7 @@ function do_curl($url, $auth = array(), $destination_file = null)
   curl_setopt($curl, CURLOPT_ENCODING, 'gzip,deflate');
   curl_setopt($curl, CURLOPT_AUTOREFERER, true);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($curl, CURLOPT_TIMEOUT, 10);
+  curl_setopt($curl, CURLOPT_TIMEOUT, 60);
   curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
   curl_setopt($curl, CURLOPT_MAXREDIRS, 4);
 
@@ -72,6 +93,11 @@ function do_curl($url, $auth = array(), $destination_file = null)
       }
       curl_setopt($curl, CURLOPT_FILE, $fp);
       curl_exec($curl);
+  if ($fp) {
+    fclose($fp);
+  }
+
+
   } else {
       $html = curl_exec($curl);
   }
@@ -80,10 +106,6 @@ function do_curl($url, $auth = array(), $destination_file = null)
       'http_code' => curl_getinfo($curl, CURLINFO_HTTP_CODE),
       'curl_message' => curl_error($curl),
       );
-
-  if ($fp) {
-    fclose($fp);
-  }
 
   if (!$destination_file) {
     $ret['html'] = $html;
