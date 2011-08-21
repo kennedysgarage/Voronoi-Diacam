@@ -13,11 +13,31 @@
 @synthesize window = _window;
 @synthesize rootViewController = _rootViewController;
 @synthesize navController = _navController;
+@synthesize userSettings;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     _rootViewController = [[RootViewController alloc]init];
     _navController = [[UINavigationController alloc]initWithRootViewController:_rootViewController];
+    
+    
+    //User Settings.  Copy the plist file and set to the shared Instance of the imi settings
+    NSString *filePath = [self dataFilePath];
+    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"user" ofType:@"plist"];
+    NSError *error;
+    
+    if (![[NSFileManager defaultManager]fileExistsAtPath:filePath]){
+        NSLog(@"File does not exist, copying over.");
+        [[NSFileManager defaultManager]copyItemAtPath:plistPath toPath:filePath error:&error];
+    }
+    
+    
+    
+    if ([[NSFileManager defaultManager]fileExistsAtPath:filePath]){
+        
+        NSLog(@"File exists, now going to load");
+        
+    }
     
     // Override point for customization after application launch.
     [self.window addSubview:_navController.view];
@@ -71,5 +91,14 @@
     [_window release];
     [super dealloc];
 }
+
+- (NSString *)dataFilePath {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:kFileName];
+    
+}
+
 
 @end

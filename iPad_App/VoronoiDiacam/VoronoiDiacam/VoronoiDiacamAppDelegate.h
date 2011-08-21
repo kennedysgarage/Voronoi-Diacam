@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
 
+#define kFileName @"user.plist"
+
 @interface VoronoiDiacamAppDelegate : NSObject <UIApplicationDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) RootViewController *rootViewController;
 @property (nonatomic, retain) UINavigationController *navController;
+@property (nonatomic, retain) NSMutableDictionary *userSettings;
+
+- (NSString *)dataFilePath;
 
 @end

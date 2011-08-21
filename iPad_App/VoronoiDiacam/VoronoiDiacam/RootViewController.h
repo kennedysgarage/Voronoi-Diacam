@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AuthBrowser.h"
 
 
 @interface RootViewController : UIViewController <UIWebViewDelegate,UIAlertViewDelegate,UIActionSheetDelegate>
@@ -21,5 +22,6 @@
 @property (nonatomic, retain) UIActivityIndicatorView *lActivityView; //landscape
 
 - (void)checkin:(id)sender; //checkin method
+- (void)dismissCurrentView:(id)sender;
 
 @end
