@@ -14,8 +14,8 @@ VD.main = function() {
 var index = 0;
 
 
-var w = 600,
-    h = 300;
+var w = 1200,
+    h = 600;
 
 /*
 var vertices = d3.range(20).map(function(d) {
@@ -70,8 +70,8 @@ function redraw( data ) {
 
     for( var idx in data ) {
         if( data.hasOwnProperty( idx )) {
-        data[idx].lat = (data[idx].lat - latmin) * latmut;
-        data[idx].long = (data[idx].long -longmin) * longmult;
+        data[idx].lat = Math.round((data[idx].lat - minlat) * latmult);
+        data[idx].long = Math.round((data[idx].long -minlong) * longmult);
         }
      }
 
@@ -101,21 +101,25 @@ function redraw( data ) {
         {"lat":40.711093, "long":-73.977299},
         {"lat":40.708231, "long":-73.9991},
         {"lat":40.700943, "long":-74.013348},
-        {"lat":40.701984, "long":-74.016094}];
+        {"lat":40.701984, "long":-74.016094},
+        {"lat":40.706018, "long":-74.019184}];
 
         for( var idx in boundary ) {
             if( boundary.hasOwnProperty( idx )) {
-            boundary[idx].lat = (boundary[idx].lat - latmin) * latmut;
-            boundary[idx].long = (boundary[idx].long -longmin) * longmult;
+            boundary[idx].lat = Math.round((boundary[idx].lat - minlat) * latmult);
+            boundary[idx].long = Math.round((boundary[idx].long - minlong) * longmult);
             }
         }
-
+b= boundary;
 
 var line_intersect = function ( v1, v2, p1, p2){
-  
+//alert(v1);
+
   var vslope = ( v1[1] - v2[1] )/ (v1[0] - v2[0]);
   var pslope = ( p1[1] - p2[1] )/ (p1[0] - p2[0]);
-  
+  if (0 == p1[0] - p2[0]) return null;
+  if (0 == v1[0] - v2[0]) return null;
+
   if (vslope == pslope)
   {
     //lines are paralel, they will not intersect anyway
@@ -124,18 +128,22 @@ var line_intersect = function ( v1, v2, p1, p2){
 
   var vb = v1[1] - vslope * v1[0];
   var pb = p1[1] - pslope * p1[0];
-
   var x = (pb + vb )/(vslope-pslope) ;
   var y = vslope*x + vb;
 
-  if (x < Math.min(v1[0],v2[0]) || x > Math.max(v1[0],v1[0])) {
+
+  if (x < Math.min(v1[0],v2[0]) || x > Math.max(v1[0],v2[0])) {
     // no intersect
     return null;
   }
-  if (y < Math.min(v1[1],v2[1]) || y > Math.max(v1[1],v1[1])) {
+  if (y < Math.min(v1[1],v2[1]) || y > Math.max(v1[1],v2[1])) {
     //mo intersect
     return null;
   }
+
+console.debug('line_intersect');
+console.debug(v1)
+console.debug(v2)
 
  return [x, y];
 } 
@@ -145,13 +153,17 @@ var line_intersect = function ( v1, v2, p1, p2){
             for (var idx in polygon) {
                 if( polygon.hasOwnProperty( idx )) {
                     if (idx == 0) {
-                        prev = polygon[polygon.length - 1];
+			continue;
                     } else {
                         prev = polygon[idx - 1];
                     }
 
-                    var intersect = line_intersect(p1, p2, prev, polygon[idx]); 
+                    var intersect = line_intersect(p1, p2, [prev.lat, prev.long], [polygon[idx].lat, polygon[idx].long]); 
                     if (intersect) {
+console.debug('poly_intersect');
+              console.debug(intersect);
+	console.debug(p1);
+	console.debug(p2);
                         return {idx:idx, point:intersect};
                     }
                 }
@@ -160,8 +172,17 @@ var line_intersect = function ( v1, v2, p1, p2){
         };
 
 
+
+
+
+
+
     // clip to boundary;
         var axel_clip = function(shapes) {
+        console.debug('before');
+        console.debug(shapes);
+
+foo = shapes;
         for( var idx in shapes ) {
           if( shapes.hasOwnProperty( idx )) {
           var shape = shapes[idx];
@@ -172,16 +193,21 @@ var line_intersect = function ( v1, v2, p1, p2){
           for (var idy in shape) {
              if( shape.hasOwnProperty( idy )) {
                  // x == 0 == lat, y = 1 = long
-               if (shape[idy][0] <= 0 || shape[idy][0] >= w || shape[idy][1] <= 1 || shape[idy][1] >= h) {
+               //if (shape[idy][0] <= 0 || shape[idy][0] >= w || shape[idy][1] <= 0 || shape[idy][1] >= h) {
+
                   // if first point, then 
                   if (idy == 0) {
-                        prev = shape[shape.length - 1];
+			continue;
                   } else {
                         prev = shape[idy - 1];
                   }
                   // 1 intersect1 -= find intersection prev - shape[idy] agains boundry
-                  var intersect = poly_intersect(prev, shape[idy], boundary );
+                  var intersect = poly_intersect([prev.lat,prev.long], shape[idy], boundary );
+                  //console
                   if (intersect) {
+console.debug('prev');
+console.debug(prev);
+console.debug(shape[idy]);
                         if (first_intersect) {
                         console.debug('1');
                             clipped_poly.push(first_intersect);
@@ -198,16 +224,19 @@ var line_intersect = function ( v1, v2, p1, p2){
                             border_start = intersect.idx;
                         }
                   } else if (!first_intersect) {
+                    console.debug('shape[idy]');
+                    console.debug(shape[idy]);
                         clipped_poly.push(shape[idy]);
                   }
 
-                  // 
-               }
+               //}
              }
           }
           shapes[idx] = clipped_poly;
         }
         }
+        console.debug('return');
+        console.debug(shapes);
           return shapes;
         };
 //console.debug('lmlm:',minlat,maxlat,minlong,maxlong,latrange,longrange,latmult,longmult);
@@ -221,15 +250,17 @@ var line_intersect = function ( v1, v2, p1, p2){
     }
 
 window.vertices = vertices;
+
+
+
 /*
 svg.selectAll("path")
     .remove();
 */
-
 svg.selectAll("path")
     .data(axel_clip(d3.geom.voronoi(vertices)))
     .enter().append("svg:path")
-//    .attr("class", function(d, i) { return i ? "q" + (i % 9) + "-9" : null; })
+    .attr("class", function(d, i) { return i ? "q" + (i % 9) + "-9" : null; })
     .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
     .on("mousemove", update)
     .attr("stroke", "yellow") 

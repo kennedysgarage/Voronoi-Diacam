@@ -273,6 +273,8 @@ function d3_geom_polygonIntersect(c, d, a, b) {
  * @returns polygons [[[x1, y1], [x2, y2], …], …]
  */
 d3.geom.voronoi = function(vertices) {
+
+goo = vertices;
   var polygons = vertices.map(function() { return []; });
 
   // Note: we expect the caller to clip the polygons, if needed.
