@@ -22,6 +22,6 @@
 @property (nonatomic, retain) UIActivityIndicatorView *lActivityView; //landscape
 
 - (void)checkin:(id)sender; //checkin method
-- (void)dismissCurrentView:(id)sender;
+
 
 @end

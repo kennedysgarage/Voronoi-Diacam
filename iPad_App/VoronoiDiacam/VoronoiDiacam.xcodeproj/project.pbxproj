@@ -39,6 +39,9 @@
 		6636D304140144B800BF6113 /* AuthBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6636D303140144B800BF6113 /* AuthBrowser.m */; };
 		666A671A140131F200E1BE6C /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 666A6719140131F200E1BE6C /* ApiManager.m */; };
 		66AB18BF14015442004DF40B /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66AB18BE14015442004DF40B /* user.plist */; };
+		66AB18FA14015710004DF40B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AB18F914015710004DF40B /* MasterViewController.m */; };
+		66AB18FE14015746004DF40B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AB18FC14015746004DF40B /* DetailViewController.m */; };
+		66AB18FF14015746004DF40B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66AB18FD14015746004DF40B /* DetailViewController.xib */; };
 		66B482181400248F000BBB09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B482171400248F000BBB09 /* CoreLocation.framework */; };
 		66B4821B1400249F000BBB09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B4821A1400249F000BBB09 /* MapKit.framework */; };
 		9A1DA0831401225900368DFA /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DA0821401225900368DFA /* Constants.m */; };
@@ -109,6 +112,11 @@
 		666A6718140131F200E1BE6C /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
 		666A6719140131F200E1BE6C /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
 		66AB18BE14015442004DF40B /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
+		66AB18F814015710004DF40B /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		66AB18F914015710004DF40B /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		66AB18FB14015746004DF40B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		66AB18FC14015746004DF40B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		66AB18FD14015746004DF40B /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		66B482171400248F000BBB09 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66B4821A1400249F000BBB09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9A1DA0811401225900368DFA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -291,12 +299,25 @@
 		660F60A71400237C00EC868F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				66AB18C014015641004DF40B /* Master Detail */,
 				660F60A8140023CC00EC868F /* RootViewController.h */,
 				660F60A9140023CC00EC868F /* RootViewController.m */,
 				6636D302140144B800BF6113 /* AuthBrowser.h */,
 				6636D303140144B800BF6113 /* AuthBrowser.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		66AB18C014015641004DF40B /* Master Detail */ = {
+			isa = PBXGroup;
+			children = (
+				66AB18F814015710004DF40B /* MasterViewController.h */,
+				66AB18F914015710004DF40B /* MasterViewController.m */,
+				66AB18FB14015746004DF40B /* DetailViewController.h */,
+				66AB18FC14015746004DF40B /* DetailViewController.m */,
+				66AB18FD14015746004DF40B /* DetailViewController.xib */,
+			);
+			name = "Master Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +371,7 @@
 				660F5FE614000D1500EC868F /* MainWindow.xib in Resources */,
 				660F6089140016B300EC868F /* Canvas.xib in Resources */,
 				66AB18BF14015442004DF40B /* user.plist in Resources */,
+				66AB18FF14015746004DF40B /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +404,8 @@
 				9A1DA0831401225900368DFA /* Constants.m in Sources */,
 				666A671A140131F200E1BE6C /* ApiManager.m in Sources */,
 				6636D304140144B800BF6113 /* AuthBrowser.m in Sources */,
+				66AB18FA14015710004DF40B /* MasterViewController.m in Sources */,
+				66AB18FE14015746004DF40B /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
