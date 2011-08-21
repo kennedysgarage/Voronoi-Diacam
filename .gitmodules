@@ -1,3 +1,0 @@
-[submodule "lib-web/js/3rdparty/mootools"]
-	path = lib-web/js/3rdparty/mootools
-	url = git://github.com/mootools/mootools-core.git
