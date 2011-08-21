@@ -4,7 +4,7 @@ class Model_faces extends Model_database {
 
 
     public function Update() {
-        $sql = "select url,hash from images where face is null and take_date <= now() and total_size > 650 order by take_date desc limit 30";
+        $sql = "select * from images where face is null and take_date <= now() order by take_date desc limit 30";
         $res = $this->_db->query(Database::SELECT, $sql);
         return $res->as_array();
     }

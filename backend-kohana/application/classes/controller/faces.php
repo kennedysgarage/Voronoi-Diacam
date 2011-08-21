@@ -5,7 +5,7 @@ class Controller_Faces extends Controller {
 	public function action_index()
 	{
         require "/home/max/public_html/voronoi/phpFlickr-3.1/helpers.php";
-        $faces = array();
+        $faces = $urls = array();
         $model = new Model_faces();
 
     
