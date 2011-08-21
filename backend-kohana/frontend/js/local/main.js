@@ -1,3 +1,5 @@
+console.debug('here');
+
 /*
  * Program execution.
  */
@@ -51,6 +53,7 @@ var svg = d3.select("#"+config.mapContainerName)
     .attr("width", w)
     .attr("height", h);
 //    .attr("class", "PiYG")
+console.debug('here');
 
 function redraw( data ) {
 
@@ -106,7 +109,9 @@ function redraw( data ) {
             boundary[idx].long = (boundary[idx].long -longmin) * longmult;
             }
         }
-function line_intersect( v1, v2, p1, p2){
+
+
+var line_intersect = function ( v1, v2, p1, p2){
   
   var vslope = ( v1[1] - v2[1] )/ (v1[0] - v2[0]);
   var pslope = ( p1[1] - p2[1] )/ (p1[0] - p2[0]);
@@ -178,11 +183,13 @@ function line_intersect( v1, v2, p1, p2){
                   var intersect = poly_intersect(prev, shape[idy], boundary );
                   if (intersect) {
                         if (first_intersect) {
-                            clipped_poly[] = first_intersect;
+                        console.debug('1');
+                            clipped_poly.push(first_intersect);
                             for (var clipx = border_start;  clipx < intersect.idx; clipx++) {
-                                clipped_poly[] = boundary[clipx];
+                                clipped_poly.push( boundary[clipx]);
                             }
-                            clipped_poly[] = intersect.point;
+                            console.debug('2');
+                            clipped_poly.push(intersect.point);
 
                             first_intersect = null;
                             border_start = null;
@@ -191,7 +198,7 @@ function line_intersect( v1, v2, p1, p2){
                             border_start = intersect.idx;
                         }
                   } else if (!first_intersect) {
-                        clipped_poly[] = shape[idy];
+                        clipped_poly.push(shape[idy]);
                   }
 
                   // 
@@ -199,6 +206,7 @@ function line_intersect( v1, v2, p1, p2){
              }
           }
           shapes[idx] = clipped_poly;
+        }
         }
           return shapes;
         };
