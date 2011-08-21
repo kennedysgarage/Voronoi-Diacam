@@ -14,6 +14,7 @@
  */
 
 require_once("phpFlickr.php");
+require_once("helpers.php");
 
 // see what our last time was
 $min_date = 0;
@@ -56,6 +57,7 @@ foreach ($woes as $w) {
     $recent = $f->photos_Search($search);
 
     foreach ($recent['photo'] as $photo) {
+        make_insert($photo);
         $j = json_encode($photo) . "\n";
         fwrite($handle, $j);
     }
