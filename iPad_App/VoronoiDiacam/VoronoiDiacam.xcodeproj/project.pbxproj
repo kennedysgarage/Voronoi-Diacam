@@ -36,6 +36,7 @@
 		660F609814001E5700EC868F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F609714001E5700EC868F /* SystemConfiguration.framework */; };
 		660F609A14001E5D00EC868F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F609914001E5D00EC868F /* MobileCoreServices.framework */; };
 		660F60AA140023CC00EC868F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F60A9140023CC00EC868F /* RootViewController.m */; };
+		6636D304140144B800BF6113 /* AuthBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6636D303140144B800BF6113 /* AuthBrowser.m */; };
 		666A671A140131F200E1BE6C /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 666A6719140131F200E1BE6C /* ApiManager.m */; };
 		666A6724140135C300E1BE6C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666A6723140135C300E1BE6C /* LoginViewController.m */; };
 		66B482181400248F000BBB09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B482171400248F000BBB09 /* CoreLocation.framework */; };
@@ -103,6 +104,8 @@
 		660F609914001E5D00EC868F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		660F60A8140023CC00EC868F /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		660F60A9140023CC00EC868F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		6636D302140144B800BF6113 /* AuthBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthBrowser.h; sourceTree = "<group>"; };
+		6636D303140144B800BF6113 /* AuthBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthBrowser.m; sourceTree = "<group>"; };
 		666A6718140131F200E1BE6C /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
 		666A6719140131F200E1BE6C /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
 		666A6722140135C300E1BE6C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -292,6 +295,8 @@
 				660F60A9140023CC00EC868F /* RootViewController.m */,
 				666A6722140135C300E1BE6C /* LoginViewController.h */,
 				666A6723140135C300E1BE6C /* LoginViewController.m */,
+				6636D302140144B800BF6113 /* AuthBrowser.h */,
+				6636D303140144B800BF6113 /* AuthBrowser.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				9A1DA0831401225900368DFA /* Constants.m in Sources */,
 				666A671A140131F200E1BE6C /* ApiManager.m in Sources */,
 				666A6724140135C300E1BE6C /* LoginViewController.m in Sources */,
+				6636D304140144B800BF6113 /* AuthBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

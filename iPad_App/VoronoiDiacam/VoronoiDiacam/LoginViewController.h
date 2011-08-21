@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ApiManager.h"
+#import "Constants.h"
 
 @interface LoginViewController : UITableViewController
+
+{
+    ApiManager *apimanager;
+}
+
+@property (nonatomic, retain) ApiManager *apimanager;
+
+
 
 @end
