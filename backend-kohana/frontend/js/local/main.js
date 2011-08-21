@@ -12,8 +12,8 @@ VD.main = function() {
 var index = 0;
 
 
-var w = 200,
-    h = 90;
+var w = 600,
+    h = 300;
 
 /*
 var vertices = d3.range(20).map(function(d) {
@@ -56,7 +56,11 @@ function redraw( data ) {
 
         console.debug( 'redrawing...', $(config.mapContainerName) );
         console.debug(data);
-
+//replace this max* with values from files
+var minlat = 40.700943;
+var minlong = -74.019184
+var maxlat = 40.87731 ;
+var maxlong = -73.911037
     // calculate min max range multiplier
     var minlat = null, minlong = null, maxlat = null, maxlong = null;
     for( var idx in data ) {
@@ -67,11 +71,21 @@ function redraw( data ) {
         if( !maxlong || data[idx].long - maxlong > 0 ) maxlong = data[idx].long;
       }
     }
-
+    //loop and multiple latmult to get pixels
+    //latmult*
     var latrange = maxlat - minlat;
     var longrange = maxlong - minlong;
+    
     var latmult = w/latrange;
     var longmult = h/longrange;
+    //loop lat *= latmult
+
+    for( var idx in data ) {
+        if( data.hasOwnProperty( idx )) {
+        data[idx].lat = data[idx].lat * latmut;
+        data[idx].long = data[idx].long * longmult;
+        }
+     }
 
 //console.debug('lmlm:',minlat,maxlat,minlong,maxlong,latrange,longrange,latmult,longmult);
 
@@ -85,9 +99,10 @@ function redraw( data ) {
     }
 
 window.vertices = vertices;
-
+/*
 svg.selectAll("path")
     .remove();
+*/
 
 svg.selectAll("path")
     .data(d3.geom.voronoi(vertices))
@@ -95,7 +110,7 @@ svg.selectAll("path")
 //    .attr("class", function(d, i) { return i ? "q" + (i % 9) + "-9" : null; })
     .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
     .on("mousemove", update)
-    //.attr("stroke", "yellow") 
+    .attr("stroke", "yellow") 
     .attr("fill", function(d,i) {
     
         var defs = d3.select("#defs")
@@ -132,13 +147,15 @@ function update( arg1, arg2 ) {
 
   //vertices[0] = d3.svg.mouse(this);
 
-/*
-svg.selectAll("path")
+    vertices.pop();
+    var cell = data.shift();
+    vertices.unshift( [50,50] );
+
+    svg.selectAll("path")
       .data(d3.geom.voronoi(vertices)
       .map(function(d) { return "M" + d.join("L") + "Z"; }))
       .filter(function(d) { return this.getAttribute("d") != d; })
       .attr("d", function(d) { return d; });
-*/
 }
 
 window.update = update;
@@ -154,12 +171,14 @@ window.pollServer = pollServer;
     function pollServer() {
         var request = new Request.JSON({
 
-            url: config.apiUrl,
+            url: config.apiUrl+start,
             method: 'get',
 
+/*
             data: { // our demo runner and jsfiddle will return this exact data as a JSON string
                 start: start
             },
+*/
 
             onSuccess: function( responseJSON, responseText ) {
                 start ++;
