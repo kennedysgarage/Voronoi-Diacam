@@ -7,14 +7,19 @@
 //
 
 #import "MasterViewController.h"
+#import "VoronoiDiacamAppDelegate.h"
+
 
 @implementation MasterViewController
+
+@synthesize latitude,longitude,apiManager,data;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        apiManager = [[ApiManager alloc]init];
     }
     return self;
 }
@@ -25,6 +30,29 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+
+#pragma Get Venues Method
+- (void)getVenuesWithLocation:(CLLocation *)location {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *accessToken = [defaults objectForKey:@"access_token"];
+	NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&oauth_token=%@",
+						   location.coordinate.latitude, 
+						   location.coordinate.longitude,
+						   accessToken];
+    NSURL *myURL = [NSURL URLWithString:urlString];
+    ASIHTTPRequest *myRequest = [ASIHTTPRequest requestWithURL:myURL];
+    
+    //Register for the notification
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(apiQueryNotifcation:) name:APIRequestDidFinishNotification object:self.apiManager];
+    [self.apiManager apiQueryWithRequest:myRequest];
+
+}
+
+- (void)refresh {
+    
 }
 
 #pragma mark - View lifecycle
@@ -38,6 +66,9 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+
 }
 
 - (void)viewDidUnload
@@ -50,6 +81,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    CLLocation *loc = [VoronoiDiacamAppDelegate sharedVoronoiDiacamAppDelegate].locationManager.location;
+    [self getVenuesWithLocation:loc];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -91,6 +125,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSArray *groups = [self.data valueForKeyPath:@"response.groups"];
+    NSArray *items = [[groups objectAtIndex:0]valueForKeyPath:@"items"];
+    
+    NSLog(@"items = %@",[items description]);
+    
+    
+    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -99,6 +141,7 @@
     }
     
     // Configure the cell...
+    
     
     return cell;
 }
@@ -154,6 +197,18 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+#pragma API Call
+- (void)apiQueryNotifcation:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:APIRequestDidFinishNotification object:self.apiManager];
+    
+    
+    ApiManager *data1 = [notification object];
+    
+    self.data = self.apiManager.dataDict;
+    
+    [self.tableView reloadData];
 }
 
 @end

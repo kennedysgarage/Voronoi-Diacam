@@ -9,11 +9,14 @@
 #import "VoronoiDiacamAppDelegate.h"
 
 @implementation VoronoiDiacamAppDelegate
+SYNTHESIZE_SINGLETON_FOR_CLASS(VoronoiDiacamAppDelegate)
+
 
 @synthesize window = _window;
 @synthesize rootViewController = _rootViewController;
 @synthesize navController = _navController;
-@synthesize userSettings;
+@synthesize userSettings = _userSettings;
+@synthesize locationManager = _locationManager;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -38,6 +41,13 @@
         NSLog(@"File exists, now going to load");
         
     }
+    
+    self.locationManager = [[CLLocationManager alloc]init];
+    [self.locationManager setDelegate:self];
+    [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    [self.locationManager startUpdatingLocation];
+    
     
     // Override point for customization after application launch.
     [self.window addSubview:_navController.view];
@@ -99,6 +109,21 @@
     return [documentsDirectory stringByAppendingPathComponent:kFileName];
     
 }
+
+#pragma mark -
+#pragma CLLocation Delegate Methods
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
+    NSLog(@"newLocation = %@ and oldLocation = %@",newLocation,oldLocation);
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
+    NSLog(@"There was an error %@",[error localizedDescription]);
+}
+
 
 
 @end

@@ -10,6 +10,9 @@
 #import "ASIHTTPRequest.h"
 #import "JSONKit.h"
 
+#define APIRequestDidFinishNotification @"RequestDidFinish"
+
+
 @interface ApiManager : NSObject
 
 {
