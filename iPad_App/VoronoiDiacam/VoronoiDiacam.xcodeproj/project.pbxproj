@@ -36,6 +36,8 @@
 		660F609814001E5700EC868F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F609714001E5700EC868F /* SystemConfiguration.framework */; };
 		660F609A14001E5D00EC868F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660F609914001E5D00EC868F /* MobileCoreServices.framework */; };
 		660F60AA140023CC00EC868F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F60A9140023CC00EC868F /* RootViewController.m */; };
+		666A671A140131F200E1BE6C /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 666A6719140131F200E1BE6C /* ApiManager.m */; };
+		666A6724140135C300E1BE6C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666A6723140135C300E1BE6C /* LoginViewController.m */; };
 		66B482181400248F000BBB09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B482171400248F000BBB09 /* CoreLocation.framework */; };
 		66B4821B1400249F000BBB09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B4821A1400249F000BBB09 /* MapKit.framework */; };
 		9A1DA0831401225900368DFA /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DA0821401225900368DFA /* Constants.m */; };
@@ -101,6 +103,10 @@
 		660F609914001E5D00EC868F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		660F60A8140023CC00EC868F /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		660F60A9140023CC00EC868F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		666A6718140131F200E1BE6C /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
+		666A6719140131F200E1BE6C /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
+		666A6722140135C300E1BE6C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		666A6723140135C300E1BE6C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		66B482171400248F000BBB09 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66B4821A1400249F000BBB09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9A1DA0811401225900368DFA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -174,6 +180,8 @@
 				660F6088140016B300EC868F /* Canvas.xib */,
 				9A1DA0811401225900368DFA /* Constants.h */,
 				9A1DA0821401225900368DFA /* Constants.m */,
+				666A6718140131F200E1BE6C /* ApiManager.h */,
+				666A6719140131F200E1BE6C /* ApiManager.m */,
 			);
 			path = VoronoiDiacam;
 			sourceTree = "<group>";
@@ -282,6 +290,8 @@
 			children = (
 				660F60A8140023CC00EC868F /* RootViewController.h */,
 				660F60A9140023CC00EC868F /* RootViewController.m */,
+				666A6722140135C300E1BE6C /* LoginViewController.h */,
+				666A6723140135C300E1BE6C /* LoginViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -366,6 +376,8 @@
 				660F60831400151400EC868F /* Reachability.m in Sources */,
 				660F60AA140023CC00EC868F /* RootViewController.m in Sources */,
 				9A1DA0831401225900368DFA /* Constants.m in Sources */,
+				666A671A140131F200E1BE6C /* ApiManager.m in Sources */,
+				666A6724140135C300E1BE6C /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
