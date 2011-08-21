@@ -37,14 +37,21 @@ if ($handle) {
 
 $woes = array(2459115);
 
-$search = array('media' => 'photos', 'has_geo' => 1, 'extras' => 'geo,date_taken,tags,url_sq, url_t, url_s, url_m, url_z, url_l, url_o'); 
+$search = array(
+    'accuracy' => 11, 
+    'per_page' => 500, 
+    'media' => 'photos', 
+    'has_geo' => 1, 
+    'safe_search' => 1, 
+    'extras' => 'geo,date_taken,tags,url_sq, url_t, url_s, url_m, url_z, url_l, url_o',
+    ); 
 
 $f = new phpFlickr("56800cb60012fb3fb3491c1bcf697fdb");
 
 $handle = fopen('flickr.json', 'a+');
 foreach ($woes as $w) { 
     $search['min_taken_date'] = $min_date;
-    $search['woeid'] = $w;
+    $search['woe_id'] = $w;
 
     $recent = $f->photos_Search($search);
 
