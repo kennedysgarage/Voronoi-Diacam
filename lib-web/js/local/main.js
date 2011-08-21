@@ -12,13 +12,13 @@ VD.main = function() {
 var index = 0;
 
 
-var w = 1240,
-    h = 600;
+var w = 1260,
+    h = 703;
 
 var vertices = d3.range(20).map(function(d) {
   return [Math.random() * w, Math.random() * h];
 });
-//window.vertices = vertices;
+window.vertices = vertices;
 //var vertices = [[100,20],[200,200],[130,180],[350,400]];
 
 var images = [
@@ -44,18 +44,24 @@ var images = [
 "http://blogs.princeton.edu/wri152-3/f05/jasonwu/sh87.jpg"
 ]
 
+function redraw( data ) {
+
+        console.debug( 'redrawing...', $(config.mapContainerName) );
+        console.debug( data.meta );
+
+
 var svg = d3.select("#"+config.mapContainerName)
   .append("svg:svg")
     .attr("width", w)
     .attr("height", h);
 //    .attr("class", "PiYG")
-//    .on("mousemove", update);
 
 svg.selectAll("path")
     .data(d3.geom.voronoi(vertices))
     .enter().append("svg:path")
 //    .attr("class", function(d, i) { return i ? "q" + (i % 9) + "-9" : null; })
     .attr("d", function(d) { return "M" + d.join("L") + "Z"; })
+    .on("mousemove", update)
     .attr("stroke", "yellow") 
     .attr("fill", function(d,i) {
     
@@ -77,38 +83,40 @@ svg.selectAll("path")
 
         return "url(#img" + (i+1) +")" 
     });
-
+/*
 svg.selectAll("circle")
     .data(vertices.slice(1))
   .enter().append("svg:circle")
-    .attr("transform", function(d) { console.debug('center:',d); return "translate(" + d + ")"; })
+    .attr("transform", function(d) { return "translate(" + d + ")"; })
     .attr("r", 2);
+*/
 
-function update() {
+}
+
+
+function update( arg1, arg2 ) {
+  console.debug( arg1, arg2, vertices[0] );
+
   vertices[0] = d3.svg.mouse(this);
-  svg.selectAll("path")
+
+/*
+svg.selectAll("path")
       .data(d3.geom.voronoi(vertices)
       .map(function(d) { return "M" + d.join("L") + "Z"; }))
       .filter(function(d) { return this.getAttribute("d") != d; })
       .attr("d", function(d) { return d; });
+*/
 }
 
+window.update = update;
 
-
-
+window.pollServer = pollServer;
 
 
     /* Procedural flow: */
     // - Set polling on an interval
-    //pollServer();
+    pollServer();
     //setInterval( pollServer, config.queryInterval * 1000 );
-
-    /* Server interactions: */
-    // Redraw
-    function redraw( data ) {
-        console.debug( 'redrawing...', $(config.mapContainerName) );
-        console.debug( data.meta );
-    }
 
     function pollServer() {
         var request = new Request.JSON({
