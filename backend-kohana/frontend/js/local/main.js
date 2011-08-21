@@ -15,12 +15,14 @@ var index = 0;
 var w = 1260,
     h = 703;
 
+/*
 var vertices = d3.range(20).map(function(d) {
   return [Math.random() * w, Math.random() * h];
 });
-window.vertices = vertices;
+*/
+//window.vertices = vertices;
 //var vertices = [[100,20],[200,200],[130,180],[350,400]];
-
+/*
 var images = [
 "http://1.bp.blogspot.com/-vENEJS_PBCw/TcwZOm2nR3I/AAAAAAAAAWE/5LArFeuutwo/s1600/Places+montoun.jpg",
 "http://3.bp.blogspot.com/-28dn7xabZdI/TcwZJ0JtN9I/AAAAAAAAAV4/hs2m2JK3stk/s1600/Places+pictures.jpg",
@@ -43,12 +45,36 @@ var images = [
 "http://farm1.static.flickr.com/115/274762017_3c68db3075.jpg",
 "http://blogs.princeton.edu/wri152-3/f05/jasonwu/sh87.jpg"
 ]
+*/
 
 function redraw( data ) {
 
         console.debug( 'redrawing...', $(config.mapContainerName) );
-        console.debug( data.meta );
+        console.debug(data);
 
+    // calculate min max range multiplier
+    var minlat = null, minlong = null, maxlat = null, maxlong = null;
+    for( var idx in data ) {
+        if( !minlat || data[idx].lat - minlat < 0 ) minlat = data[idx].lat;
+        if( !maxlat || data[idx].lat - maxlat > 0 ) maxlat = data[idx].lat;
+        if( !minlong || data[idx].long - minlong < 0 ) minlong = data[idx].long;
+        if( !maxlong || data[idx].long - maxlong > 0 ) maxlong = data[idx].long;
+    }
+
+    var latrange = maxlat - minlat;
+    var longrange = maxlong - minlong;
+    var latmult = w/latrange;
+    var longmult = h/longrange;
+
+console.debug('lmlm:',minlat,maxlat,minlong,maxlong,latrange,longrange,latmult,longmult);
+
+    var vertices = [];
+    var images = [];
+    for( var idx in data ) {
+        vertices.push( [Math.round((latmult*(data[idx].lat-minlat))),Math.round((longmult*(data[idx].long-minlong)))] );
+        console.debug(vertices[idx],data[idx].url);
+        images.push( data[idx].url );
+    }
 
 var svg = d3.select("#"+config.mapContainerName)
   .append("svg:svg")
