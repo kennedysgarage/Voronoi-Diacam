@@ -790,7 +790,7 @@
 			</dict>
 		</dict>
 		<string>file://localhost/Users/kennedy/git/Voronoi-Diacam/iPad_App/VoronoiDiacam/VoronoiDiacam.xcodeproj/</string>
-		<real>335558036.80779099</real>
+		<real>335601553.31559497</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1371,7 +1371,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 2:31 PM</string>
+		<string>Yesterday at 2:31 PM</string>
 		<integer>234</integer>
 		<dict>
 			<key>$class</key>
@@ -2348,11 +2348,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>251</integer>
+					<integer>250</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>300</integer>
+					<integer>299</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -2364,11 +2364,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>325</integer>
+					<integer>324</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>333</integer>
+					<integer>332</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -2388,7 +2388,7 @@
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>250</integer>
+				<integer>249</integer>
 			</dict>
 			<key>geniusEditorContextNode</key>
 			<dict>
@@ -2403,14 +2403,14 @@
 			<key>rootLayoutTreeNode</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>247</integer>
+				<integer>246</integer>
 			</dict>
 		</dict>
 		<dict>
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>249</integer>
+				<integer>248</integer>
 			</dict>
 			<key>children</key>
 			<dict>
@@ -2429,14 +2429,14 @@
 			<key>parent</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>247</integer>
+				<integer>246</integer>
 			</dict>
 		</dict>
 		<dict>
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>246</integer>
+				<integer>245</integer>
 			</dict>
 			<key>DocumentLocation</key>
 			<dict>
@@ -2501,27 +2501,18 @@
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>245</integer>
+				<integer>244</integer>
 			</dict>
 			<key>documentURL</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>244</integer>
+				<integer>46</integer>
 			</dict>
 			<key>timestamp</key>
 			<dict>
 				<key>CF$UID</key>
 				<integer>0</integer>
 			</dict>
-		</dict>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>47</integer>
-			</dict>
-			<key>NS.string</key>
-			<string>file://localhost/Users/kennedy/git/Voronoi-Diacam/iPad_App/VoronoiDiacam/VoronoiDiacam.xcodeproj/</string>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -2545,12 +2536,12 @@
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>249</integer>
+				<integer>248</integer>
 			</dict>
 			<key>children</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>248</integer>
+				<integer>247</integer>
 			</dict>
 			<key>contentType</key>
 			<integer>0</integer>
@@ -2609,14 +2600,14 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>252</integer>
+					<integer>251</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>253</integer>
+					<integer>252</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2631,14 +2622,14 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>254</integer>
+					<integer>253</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>255</integer>
+					<integer>254</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2653,22 +2644,22 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
+					<integer>255</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
 					<integer>256</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>257</integer>
 				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>258</integer>
-				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>259</integer>
+					<integer>258</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -2676,7 +2667,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>298</integer>
+					<integer>297</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2693,7 +2684,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>260</integer>
+					<integer>259</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2705,6 +2696,10 @@
 			</dict>
 			<key>NS.keys</key>
 			<array>
+				<dict>
+					<key>CF$UID</key>
+					<integer>260</integer>
+				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>261</integer>
@@ -2729,32 +2724,28 @@
 					<key>CF$UID</key>
 					<integer>266</integer>
 				</dict>
+			</array>
+			<key>NS.objects</key>
+			<array>
 				<dict>
 					<key>CF$UID</key>
 					<integer>267</integer>
 				</dict>
-			</array>
-			<key>NS.objects</key>
-			<array>
 				<dict>
 					<key>CF$UID</key>
 					<integer>268</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>269</integer>
+					<integer>273</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>274</integer>
+					<integer>294</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>295</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>295</integer>
+					<integer>294</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -2762,7 +2753,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>296</integer>
+					<integer>295</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2778,7 +2769,7 @@
 			<key>$class</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>246</integer>
+				<integer>245</integer>
 			</dict>
 			<key>DocumentLocation</key>
 			<dict>
@@ -2793,12 +2784,12 @@
 			<key>IdentifierPath</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>270</integer>
+				<integer>269</integer>
 			</dict>
 			<key>IndexOfDocumentIdentifier</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>273</integer>
+				<integer>272</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -2811,7 +2802,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>271</integer>
+					<integer>270</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2824,7 +2815,7 @@
 			<key>Identifier</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>272</integer>
+				<integer>271</integer>
 			</dict>
 		</dict>
 		<string>VoronoiDiacam</string>
@@ -2858,7 +2849,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>275</integer>
+					<integer>274</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>280</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -2866,11 +2861,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>282</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>290</integer>
+					<integer>289</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2891,7 +2882,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>276</integer>
+					<integer>275</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2905,11 +2896,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>277</integer>
+					<integer>276</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>279</integer>
+					<integer>278</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2938,7 +2929,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>278</integer>
+					<integer>277</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2968,7 +2959,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>280</integer>
+					<integer>279</integer>
 				</dict>
 			</array>
 		</dict>
@@ -2984,7 +2975,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>283</integer>
+					<integer>282</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3002,15 +2993,15 @@
 			<key>selection</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>285</integer>
+				<integer>284</integer>
 			</dict>
 			<key>timestamp</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>284</integer>
+				<integer>283</integer>
 			</dict>
 		</dict>
-		<real>335558036.810929</real>
+		<real>335601553.334508</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3029,14 +3020,14 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>286</integer>
+					<integer>285</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>287</integer>
+					<integer>286</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -3044,7 +3035,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>288</integer>
+					<integer>287</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3060,7 +3051,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>289</integer>
+					<integer>288</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3120,11 +3111,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>291</integer>
+					<integer>290</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>292</integer>
+					<integer>291</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -3132,11 +3123,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>293</integer>
+					<integer>292</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>294</integer>
+					<integer>293</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -3203,7 +3194,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>297</integer>
+				<integer>296</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/kennedy/git/Voronoi-Diacam/iPad_App/VoronoiDiacam/VoronoiDiacam.xcodeproj/</string>
@@ -3217,7 +3208,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>299</integer>
+					<integer>298</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3230,6 +3221,10 @@
 			</dict>
 			<key>NS.keys</key>
 			<array>
+				<dict>
+					<key>CF$UID</key>
+					<integer>300</integer>
+				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>301</integer>
@@ -3250,10 +3245,6 @@
 					<key>CF$UID</key>
 					<integer>305</integer>
 				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>306</integer>
-				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
@@ -3263,11 +3254,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>307</integer>
+					<integer>306</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>309</integer>
+					<integer>308</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -3275,11 +3266,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>311</integer>
+					<integer>310</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>319</integer>
+					<integer>318</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3299,7 +3290,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>308</integer>
+					<integer>307</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
@@ -3321,7 +3312,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>310</integer>
+					<integer>309</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
@@ -3350,7 +3341,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>312</integer>
+					<integer>311</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3364,11 +3355,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>313</integer>
+					<integer>312</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>316</integer>
+					<integer>315</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3393,11 +3384,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>314</integer>
+					<integer>313</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>315</integer>
+					<integer>314</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3424,11 +3415,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>317</integer>
+					<integer>316</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>318</integer>
+					<integer>317</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3451,7 +3442,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>320</integer>
+					<integer>319</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3465,11 +3456,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>321</integer>
+					<integer>320</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>323</integer>
+					<integer>322</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3494,11 +3485,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>314</integer>
+					<integer>313</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>322</integer>
+					<integer>321</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3524,11 +3515,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>317</integer>
+					<integer>316</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>324</integer>
+					<integer>323</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3550,7 +3541,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>326</integer>
+					<integer>325</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3564,11 +3555,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>327</integer>
+					<integer>326</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>330</integer>
+					<integer>329</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3593,11 +3584,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>328</integer>
+					<integer>327</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>329</integer>
+					<integer>328</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3624,11 +3615,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>331</integer>
+					<integer>330</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>332</integer>
+					<integer>331</integer>
 				</dict>
 			</array>
 		</dict>
