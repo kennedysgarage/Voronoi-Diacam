@@ -2,11 +2,17 @@
 require_once("phpFlickr.php");
 require_once('helpers.php');
 
-$span = 24 * 60 * 60;
+//$span = 24 * 60 * 60;
 
 // first start - 1282262400
-$date_start = 1282262400;
-$date_end = time();
+$ar = $argv[1];
+$ar = explode('|', $ar);
+$date_start = strtotime($ar[2]);
+$date_end = strtotime($ar[3]);
+
+if (!$date_start || !$date_end) {
+    ;exit;
+}
 
 $search = array(
     'accuracy' => 11,
@@ -19,9 +25,9 @@ $search = array(
 
 $f = new phpFlickr("56800cb60012fb3fb3491c1bcf697fdb");
 
-for ($i = $date_start; $i = $i + $span; $i <= $date_end) {
-    $search['min_taken_date'] = $i;
-    $search['max_taken_date'] = $i + $span;
+//for ($i = $date_start; $i = $i + $span; $i <= $date_end) {
+    $search['min_taken_date'] = $date_start;
+    $search['max_taken_date'] = $date_end;
 
     $recent = $f->photos_Search($search);
 
@@ -29,8 +35,8 @@ for ($i = $date_start; $i = $i + $span; $i <= $date_end) {
         // echo insert
         make_insert($photo);
     }
-    sleep(1);
-}
+    //sleep(1);
+//}
 
 
 

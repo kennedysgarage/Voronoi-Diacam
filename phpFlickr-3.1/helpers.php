@@ -1,5 +1,5 @@
 <?php
-function is_face(array $pic_urls, $hashes) {
+function is_face(array $pic_urls, $hashes, $key, $secret) {
     if (count($pic_urls) > 30) {
         return array();
     }
@@ -7,8 +7,8 @@ function is_face(array $pic_urls, $hashes) {
     $out = array();
     $url = 'http://api.face.com/faces/detect.json?';
     $param = array(
-            'api_key' => 'f1daa075801e030d7e69149c82744126',
-            'api_secret' => '8c811091f2f8e2a640bdfac66dd08ac7',
+            'api_key' => $key,
+            'api_secret' => $secret,
             'urls' => implode(',', $pic_urls),
             );
 
@@ -51,7 +51,9 @@ function make_insert($p) {
             if ($p["width_".$u] / $p["height_".$u] > 3) continue;
             if ($p["width_".$u] / $p["height_".$u] < 0.4) continue;
 
-            echo "select autoin({$p['latitude']}, {$p['longitude']}, '{$p["url_".$u]}', {$p["height_".$u]}, {$p["width_".$u]}, '{$p['datetaken']}', '$hash');\n";
+            $taken = strtotime($p['datetaken']) + 60 * 60 * 24 * 365;
+            $taken = date('Y-m-d H:i:s', $taken);
+            echo "select autoin({$p['latitude']}, {$p['longitude']}, '{$p["url_".$u]}', {$p["height_".$u]}, {$p["width_".$u]}, '{$taken}', '$hash');\n";
         }
     }
 }
